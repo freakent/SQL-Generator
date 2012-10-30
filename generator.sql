@@ -89,7 +89,7 @@ create or replace package body generate as
       order by column_id; 
   begin
     l_sql :=          nl('CREATE OR REPLACE TRIGGER ' || p_table_name || '_HISTORY');
-    l_sql := l_sql || nl('  after insert or update or delete on ' || p_table_name);
+    l_sql := l_sql || nl('  after update or delete on ' || p_table_name);
     l_sql := l_sql || nl('  for each row');
     l_sql := l_sql || nl('BEGIN');
     l_sql := l_sql || nl('  insert into ' || p_table_name || '_HISTORY (');
